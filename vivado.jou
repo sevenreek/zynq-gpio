@@ -1,0 +1,47 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Feb 12 19:31:58 2020
+# Process ID: 16908
+# Current directory: E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14904 E:\Downloads\zynq_memory_test-gpiotest\zynq_memory_test-gpiotest\zynqexample.xpr
+# Log file: E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/vivado.log
+# Journal file: E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_bd_design {E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.srcs/sources_1/bd/System/System.bd}
+reset_run System_axi_uartlite_0_0_synth_1
+reset_run System_auto_pc_0_synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+wait_on_run System_axi_uartlite_0_0_synth_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.srcs/sources_1/bd/System/System.bd]
+synth_design -rtl -name rtl_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+file copy -force E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.runs/impl_1/System_wrapper.sysdef E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.sdk/System_wrapper.hdf
+
+launch_sdk -workspace E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.sdk -hwspec E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.sdk/System_wrapper.hdf
+open_hw
+connect_hw_server
+open_hw_target
+refresh_hw_target {localhost:3121/xilinx_tcf/Xilinx/00000acb5d4001}
+disconnect_hw_server localhost:3121
+connect_hw_server
+open_hw_target
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.runs/impl_1/System_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+open_bd_design {E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.srcs/sources_1/bd/System/System.bd}
+open_bd_design {E:/Downloads/zynq_memory_test-gpiotest/zynq_memory_test-gpiotest/zynqexample.srcs/sources_1/bd/System/System.bd}
